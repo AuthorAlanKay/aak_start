@@ -1,0 +1,10 @@
+/*
+!/pubilc
+!/pubilc/**
+!/src
+!/src/**
+!.gitignore
+!package.json
+!READMD.md
+!tsconfig.json
+!.prettierrc
