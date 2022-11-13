@@ -5,6 +5,6 @@
 !/src/**
 !.gitignore
 !package.json
-!READMD.md
+!README.md
 !tsconfig.json
 !.prettierrc
