@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { MuiThemeConfig } from './config/MuiThemeConfig';
 import { RootLayout } from './layouts/RootLayout';
+import { store } from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import { Root } from './routes/Root';
 
@@ -23,9 +25,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <MuiThemeConfig>
-      <RouterProvider router={router} />
-    </MuiThemeConfig>
+    <Provider store={store}>
+      <MuiThemeConfig>
+        <RouterProvider router={router} />
+      </MuiThemeConfig>
+    </Provider>
   </React.StrictMode>
 );
 

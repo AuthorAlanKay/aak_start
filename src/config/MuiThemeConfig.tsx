@@ -13,14 +13,14 @@ import {
   MuiTheme
 } from '@mui/material';
 import GlobalStyles from '../theme/globalStyles';
+import { useAppSelector } from '../redux/hooks';
 
 export interface IAppProps {
   children: React.ReactNode;
 }
 
 export function MuiThemeConfig(props: IAppProps) {
-  // const isLight = false;
-  const isLight = true;
+  const isLight = useAppSelector((state) => state.setting.isLight);
 
   const themeOptions = React.useMemo(
     () => ({

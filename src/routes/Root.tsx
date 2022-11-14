@@ -1,10 +1,14 @@
 import { Box, Button, Container, Link, SvgIcon, useTheme } from '@mui/material';
 import * as React from 'react';
 import { CustomizedInputBase } from '../components/CustomizedInputBase';
+import { changeTheme } from '../redux/features/settingSlice';
+import { useAppDispatch } from '../redux/hooks';
 
 export interface IAppProps {}
 
 export function Root(props: IAppProps) {
+  const dispatch = useAppDispatch();
+
   const theme = useTheme();
 
   return (
@@ -256,7 +260,7 @@ l0 98 30 7 c27 6 44 35 20 35 -5 0 -10 -4 -10 -9z m-164 -98 c-3 -21 -6 -57
             鲁ICP备2022007626号-1
           </Link>
           <Box sx={{ flex: 1 }} />
-          <Button color="inherit" sx={{ fontWeight: 400 }}>
+          <Button color="inherit" sx={{ fontWeight: 400 }} onClick={() => dispatch(changeTheme())}>
             设置
           </Button>
         </Container>
