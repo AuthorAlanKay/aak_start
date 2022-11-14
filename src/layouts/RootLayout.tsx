@@ -1,4 +1,4 @@
-import { Button, Container, createSvgIcon, IconButton, styled, useTheme } from '@mui/material';
+import { Button, Container, createSvgIcon, IconButton, styled } from '@mui/material';
 import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -17,15 +17,13 @@ const AppIcon = createSvgIcon(
 export interface IAppProps {}
 
 export function RootLayout(props: IAppProps) {
-  const theme = useTheme();
-
   return (
     <Container maxWidth="lg" sx={{ height: '100%' }}>
       <HeaderStyle>
         <Container
           maxWidth="lg"
           sx={{
-            padding: theme.spacing(1.25, 2.5),
+            padding: (theme) => theme.spacing(1.25, 2.5),
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-end',
@@ -33,7 +31,9 @@ export function RootLayout(props: IAppProps) {
           }}
         >
           <IconButton>
-            <AppIcon sx={{ color: theme.palette.mode === 'light' ? '#5f6368' : '#ffffff' }} />
+            <AppIcon
+              sx={{ color: (theme) => (theme.palette.mode === 'light' ? '#5f6368' : '#ffffff') }}
+            />
           </IconButton>
           <Button variant="contained" color="info">
             登录

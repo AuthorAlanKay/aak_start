@@ -2,10 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export interface SettingState {
   isLight: boolean;
+  searchEngine: string;
+  searchHistory: { timestamp: number; value: string }[];
 }
 
 const initialState: SettingState = {
-  isLight: true
+  isLight: true,
+  searchEngine: 'google',
+  searchHistory: [{ timestamp: 1668422776497, value: 'test' }]
 };
 
 export const settingSlice = createSlice({

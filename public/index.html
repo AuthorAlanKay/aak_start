@@ -45,8 +45,17 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      // 固定高
-      document.querySelector('body').style.height = window.innerHeight + 'px';
+      // 保持最大高度（处理安卓软键盘）
+      let height = window.innerHeight;
+      function handleResize() {
+        if (window.innerHeight <= height) {
+          document.querySelector('body').style.height = height + 'px';
+        } else {
+          height = window.innerHeight;
+          document.querySelector('body').style.height = height + 'px';
+        }
+      }
+      window.addEventListener('resize', handleResize);
     </script>
   </body>
 </html>
