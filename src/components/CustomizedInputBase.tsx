@@ -14,7 +14,6 @@ import { useAppSelector } from '../redux/hooks';
 
 export interface IAppProps {}
 
-// TODO ↓↑
 export function CustomizedInputBase(props: IAppProps) {
   const inputRef = React.useRef(null);
 
